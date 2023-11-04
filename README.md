@@ -1,23 +1,33 @@
 # Git-Smart
 
-## Description:
+### Description:
 
 # Project Name:
 
-## Challenge Statements Addressed:
+### Challenge Statements Addressed:
+How might we build an app that will help the airline industry?
 
-## Project Description:
+### Project Description:
 
-## Project Value:
 
-## Tech Overview:
+### Project Value:
+The target customers is for first-time/new flyers, people who are unfamiliar at certain airports, and for people who travel internationally. The benefits of this app will be to make navigating airports easier as the app will direct the user to easily find destinations such as terminals, gates, restaurants, buggage claims, and other services. In addition, for international travelers the app can translate written foreign languages; for example, translating signs and menus for people who eat at foreign restaurants.
 
-## Contributors:
+### Tech Overview:
+Kivy, kivymd, 
 
-## School Name:
+### Contributors:
+Christian Hall
+Sierria Powell
+Cameron Jones
+Alexander Traylor
 
-## Team Name:
+### School Name:
+Tuskegee University
 
-## Link to Video Pitch:
+### Team Name:
+Git Smart
 
-## Link to Demo Presentation:
+### Link to Video Pitch:
+
+### Link to Demo Presentation:
