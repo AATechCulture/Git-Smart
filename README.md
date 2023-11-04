@@ -17,9 +17,9 @@ The target customers is for first-time/new flyers, people who are unfamiliar at 
 Kivy, kivymd, 
 
 ### Contributors:
-Christian Hall
-Sierria Powell
-Cameron Jones
+Christian Hall,
+Sierria Powell,
+Cameron Jones, and
 Alexander Traylor
 
 ### School Name:
