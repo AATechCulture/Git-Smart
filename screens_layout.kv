@@ -1,0 +1,15 @@
+<MainScreen>:
+    MDRectangleFlatButton:
+        text: "Map"
+        pos_hint:{"center_x":0.3, "center_y":0.3}
+    MDRectangleFlatButton:
+        text: "Translate"
+        pos_hint:{"center_x":0.5, "center_y":0.3}
+        on_release: root.manager.current = "TranslateScreen"
+    MDRectangleFlatButton:
+        text: "Checklist"
+        pos_hint:{"center_x":0.7, "center_y":0.3}
+<TranslateScreen>:
+    MDRectangleFlatButton:
+        text: "Go Back"
+        on_release: root.manager.current = "MainScreen"
