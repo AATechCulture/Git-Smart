@@ -66,7 +66,7 @@ class Math(Map):
                 if event.type == pygame.QUIT:
                     running = False
 
-            # Implement VR direction highlighting here
+            # Implement AR direction highlighting here
             pygame.draw.rect(screen, (255, 0, 0), (200, 200, 100, 100))  # Example: Red square
             pygame.display.update()
 
