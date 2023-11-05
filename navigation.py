@@ -164,7 +164,7 @@ class Navigation(Map):
             initial_bearing = self.bearing(lat, long, next_lat, next_long)
 
             # We used the initial bearing to guide the user in the correct direction.
-            # We could've displayed the bearing on a VR interface, but I'll print it here:
+            # We could've displayed the bearing on a AR interface, but I'll print it here:
             if initial_bearing < 90 or initial_bearing > 270:
                 print("Turn right")
             elif 90 <= initial_bearing <= 180:
