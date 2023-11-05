@@ -6,8 +6,13 @@ from kivymd.app import MDApp
 from kivymd.uix.button import MDRectangleFlatButton
 from kivy.uix.screenmanager import ScreenManager, Screen
 import cv2
+from kivy.uix.label import Label
 from PIL import Image
 from pytesseract import pytesseract
+from imutils.object_detection import non_max_suppression
+from translate import Translator
+from kivy.uix.camera import Camera
+from kivy.clock import Clock
 
 #element placement
 from kivy.uix.floatlayout import FloatLayout
@@ -34,6 +39,7 @@ from kivy.animation import Animation
 #change position with pos (first number is your x coordinate, the last number is your y coordinate
 #bottom left corner is (0,0)
 #use bind to make button perform function
+
 class MainScreen(Screen):
     pass
 
@@ -41,7 +47,7 @@ class MapScreen(Screen):
     pass
 
 class TranslateScreen(Screen):
-    pass
+    video_capture = cv2.VideoCapture(0)
 
 class ChecklistScreen(Screen):
     pass
