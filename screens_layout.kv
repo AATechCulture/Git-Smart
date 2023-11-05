@@ -9,7 +9,23 @@
     MDRectangleFlatButton:
         text: "Checklist"
         pos_hint:{"center_x":0.7, "center_y":0.3}
+        on_release: root.manager.current = "ChecklistScreen"
+    
 <TranslateScreen>:
+    MDRectangleFlatButton:
+        text: "Go Back"
+        on_release: root.manager.current = "MainScreen"
+
+    Camera:
+        id: camera_widget
+        resolution: self.resolution
+        play:1
+
+    MDRectangleFlatButton:
+        text: "Capture"
+        pos_hint:{"center_x":0.5}
+
+<ChecklistScreen>:
     MDRectangleFlatButton:
         text: "Go Back"
         on_release: root.manager.current = "MainScreen"

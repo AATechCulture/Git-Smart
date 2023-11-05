@@ -6,8 +6,13 @@ from kivymd.app import MDApp
 from kivymd.uix.button import MDRectangleFlatButton
 from kivy.uix.screenmanager import ScreenManager, Screen
 import cv2
+from kivy.uix.label import Label
 from PIL import Image
 from pytesseract import pytesseract
+from imutils.object_detection import non_max_suppression
+from translate import Translator
+from kivy.uix.camera import Camera
+from kivy.clock import Clock
 
 #Change size using size_hint
 #Change the color of the button using background_color
@@ -15,6 +20,7 @@ from pytesseract import pytesseract
 #change position with pos (first number is your x coordinate, the last number is your y coordinate
 #bottom left corner is (0,0)
 #use bind to make button perform function
+
 class MainScreen(Screen):
     pass
 
@@ -22,32 +28,19 @@ class MapScreen(Screen):
     pass
 
 class TranslateScreen(Screen):
-    pass
+    video_capture = cv2.VideoCapture(0)
 
 class ChecklistScreen(Screen):
     pass
 
 class AAApp(MDApp):
     def build(self):
-        """screen = Screen()
-        self.theme_cls.theme_style = "Dark"
-
-        mapBtn = MDRectangleFlatButton(text = "Map",
-                                    pos_hint={"center_x":0.3, "center_y":0.3})
-        translateBtn = MDRectangleFlatButton(text = "Translate",
-                                    pos_hint={"center_x":0.5, "center_y":0.3},
-                                             on_release=self.translateImg)
-        checklistBtn = MDRectangleFlatButton(text = "Checklist",
-                                             pos_hint={"center_x":0.7, "center_y":0.3})
-        screen.add_widget(mapBtn)
-        screen.add_widget(translateBtn)
-        screen.add_widget(checklistBtn)
-        return screen"""
         Builder.load_file("screens_layout.kv")
         sm = ScreenManager()
 
         sm.add_widget(MainScreen(name = "MainScreen"))
         sm.add_widget(TranslateScreen(name = "TranslateScreen"))
+        sm.add_widget(ChecklistScreen(name = "ChecklistScreen"))
 
         return sm
 
