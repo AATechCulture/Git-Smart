@@ -14,6 +14,25 @@ from translate import Translator
 from kivy.uix.camera import Camera
 from kivy.clock import Clock
 
+#element placement
+from kivy.uix.floatlayout import FloatLayout
+
+#import for check boxes and the layout 
+from kivy.uix.checkbox import CheckBox
+from kivy.uix.boxlayout import BoxLayout
+
+
+from kivy.lang import Builder
+from kivy.uix.screenmanager import ScreenManager, Screen
+
+#imports for checkbox
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.checkbox import CheckBox
+from kivy.uix.label import Label
+
+#animation for striking line through for checklist
+from kivy.animation import Animation
+
 #Change size using size_hint
 #Change the color of the button using background_color
 #change the color of the border using color
@@ -35,12 +54,30 @@ class ChecklistScreen(Screen):
 
 class AAApp(MDApp):
     def build(self):
+        """screen = Screen()
+        self.theme_cls.theme_style = "Dark"
+        mapBtn = MDRectangleFlatButton(text = "Map",
+                                    pos_hint={"center_x":0.3, "center_y":0.3})
+        translateBtn = MDRectangleFlatButton(text = "Translate",
+                                    pos_hint={"center_x":0.5, "center_y":0.3})
+                                    pos_hint={"center_x":0.5, "center_y":0.3},
+                                             on_release=self.translateImg)
+        checklistBtn = MDRectangleFlatButton(text = "Checklist",
+                                             pos_hint={"center_x":0.7, "center_y":0.3})
+        screen.add_widget(mapBtn)
+        screen.add_widget(translateBtn)
+        screen.add_widget(checklistBtn)
+        return screen
+        return screen"""
+        Builder.load_file("screens_layout.kv.py")
+        return screen"""
         Builder.load_file("screens_layout.kv")
         sm = ScreenManager()
 
         sm.add_widget(MainScreen(name = "MainScreen"))
         sm.add_widget(TranslateScreen(name = "TranslateScreen"))
         sm.add_widget(ChecklistScreen(name = "ChecklistScreen"))
+        sm.add_widget(MapScreen(name = "MapScreen"))
 
         return sm
 
