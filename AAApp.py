@@ -3,7 +3,6 @@ from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.lang import Builder
 from kivymd.app import MDApp
-from kivymd.uix.screen import Screen
 from kivymd.uix.button import MDRectangleFlatButton
 from kivy.uix.screenmanager import ScreenManager, Screen
 import cv2
@@ -65,6 +64,8 @@ class AAApp(MDApp):
         return screen
         return screen"""
         Builder.load_file("screens_layout.kv.py")
+        return screen"""
+        Builder.load_file("screens_layout.kv")
         sm = ScreenManager()
 
         sm.add_widget(MainScreen(name = "MainScreen"))
