@@ -52,12 +52,13 @@ class Math(Map):
         distance = geodesic(start_location, end_location).kilometers
         print(f"Route calculated from ({start_lat}, {start_long}) to ({end_lat}, {end_long})")
         print(f"Distance: {distance:.2f} km")
-
-    def highlight_direction_in_vr(self):
-        # Create a VR-like experience with Pygame
+    #Purpose: o set up the initial environment for simulating a AR-like experience using the Pygame 
+    #library. It initializes Pygame, creates a display window, and sets a caption. 
+    def highlight_direction_in_ar(self):
+        # Create a AR-like experience with Pygame
         pygame.init()
         screen = pygame.display.set_mode((800, 600))
-        pygame.display.set_caption("VR Navigation")
+        pygame.display.set_caption("AR Navigation")
 
         running = True
         while running:
@@ -71,13 +72,13 @@ class Math(Map):
 
         pygame.quit()
 
-    # Purpose: Simulate highlighting directions in a Virtual Reality (VR) environment.
-    # Explanation: In this simplified example, this function prints "Directions highlighted in VR" to simulate
-    # the process of highlighting directions using a VR library or framework. However, in a complete
-    # implementation, you would use a VR framework to provide real VR experiences.
+    # Purpose: Simulate highlighting directions in a Argument Reality environment.
+    # Explanation: In this simplified example, this function prints "Directions highlighted in AR" to simulate
+    # the process of highlighting directions using a AR library or framework. However, in a complete
+    # implementation, you would use a AR framework to provide real AR experiences.
 
     def highlight_direction_in_vr(self):
-        print("Directions highlighted in VR")
+        print("Directions highlighted in AR")
 
     # Purpose: Convert degrees to radians.
     # Explanation: This is a utility function that provides the capability to convert angles from degrees
@@ -112,7 +113,10 @@ class Navigation(Map):
     # Explanation: This function computes the initial bearing, which represents the angle in degrees
     # measured clockwise from the North direction, from one point to another. It uses a formula and returns the
     # result in degrees.
-
+    #Purpose: Calculate the initial bearing between two sets of latitude and longitude coordinates.
+    # Explanation: This function computes the initial bearing, which represents the angle in degrees 
+    # measured clockwise from the North direction, from one point to another. It uses a formula and 
+    # returns the result in degrees.
     def bearing(self, lat1, lon1, lat2, lon2):
         lat1_rad = math.radians(lat1)
         lon1_rad = math.radians(lon1)
@@ -129,7 +133,10 @@ class Navigation(Map):
         initial_bearing = (initial_bearing + 360) % 360
 
         return initial_bearing
-
+    #Purpose: Simulate a user's movement between predefined airport locations.
+    # Explanation: This function simulates a user's movement between predefined airport 
+    # locations by iterating through these locations, calculating directions, and printing 
+    # messages about the user's movement. It also uses the bearing function to determine the initial bearing.
     def simulate_user_movement(self):
         def get_latest_user_location():
             # Iterate through predefined airport locations
@@ -140,27 +147,24 @@ class Navigation(Map):
                 location_name = location_names[i]
                 yield airport_locations[location_name]["coords"], location_name
 
-        # Create a generator object to get test coordinates
+        #Created a generator object to get test coordinates
         coordinate_generator = get_latest_user_location()
 
         while True:
-            # Get the next test location and coordinates
             (lat, long), location_name = next(coordinate_generator)
             self.find_location(lat, long)
             print(f"User is at: {location_name}")
 
-            # Check if the user has reached the final destination (Check-in Counter)
-            if location_name == "Check-in Counter":
+            if location_name == "Gate 2":
                 print("You have reached your final destination.")
                 break
 
-            # Determine the initial bearing for direction
             next_location = next(coordinate_generator)
             next_lat, next_long = next_location[0]
             initial_bearing = self.bearing(lat, long, next_lat, next_long)
 
-            # You can use this initial bearing to guide the user in the correct direction.
-            # For example, you can display the bearing on a VR interface, but I'll print it here:
+            # We used the initial bearing to guide the user in the correct direction.
+            # We could've displayed the bearing on a VR interface, but I'll print it here:
             if initial_bearing < 90 or initial_bearing > 270:
                 print("Turn right")
             elif 90 <= initial_bearing <= 180:

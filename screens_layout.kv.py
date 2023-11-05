@@ -21,6 +21,9 @@
         text: "Go Back"
         on_release: root.manager.current = "MainScreen"
         #pos_hint: {"center_x": 0,"center_y": 0}
+    MDLabel:
+        text:""
+        id:"client_location"
 
 #translate screen
 <TranslateScreen>:
